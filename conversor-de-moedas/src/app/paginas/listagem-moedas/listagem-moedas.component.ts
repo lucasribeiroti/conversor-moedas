@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 import { ConversaoService } from '../../servicos/conversao.service';
 
 @Component({
@@ -7,14 +8,20 @@ import { ConversaoService } from '../../servicos/conversao.service';
   templateUrl: './listagem-moedas.component.html',
   styleUrls: ['./listagem-moedas.component.scss']
 })
-export class ListagemMoedasComponent implements OnInit {
+export class ListagemMoedasComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['simbolo', 'nome'];
   dataSource = new MatTableDataSource<any>();
+
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private conversaoService: ConversaoService) {}
 
   ngOnInit() {
     this.carregarMoedas();
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
   }
 
   async carregarMoedas() {
