@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PaginaInicialComponent } from './pagina-inicial.component';
 
 describe('PaginaInicialComponent', () => {

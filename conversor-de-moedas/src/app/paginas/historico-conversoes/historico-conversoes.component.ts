@@ -1,16 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { ConversaoService } from '../../servicos/conversao.service';
 
 @Component({
   selector: 'app-historico-conversoes',
   templateUrl: './historico-conversoes.component.html',
   styleUrls: ['./historico-conversoes.component.scss']
 })
-export class HistoricoConversoesComponent {
-  historico = [
-    { data: '2024-10-24', hora: '15:30', valor: 100, origem: 'USD', destino: 'BRL', taxa: 5.27, resultado: 527 }
-  ];
+export class HistoricoConversoesComponent implements OnInit {
+  displayedColumns: string[] = ['data', 'hora', 'valor', 'origem', 'destino', 'taxa', 'resultado', 'acoes'];
+  dataSource = new MatTableDataSource<any>();
+
+  constructor(private conversaoService: ConversaoService) {}
+
+  ngOnInit(): void {
+    this.conversaoService.historico$.subscribe(historico => {
+      this.dataSource.data = historico;
+    });
+  }
 
   excluirConversao(index: number) {
-    this.historico.splice(index, 1);
+    const historicoAtual = this.conversaoService.getHistoricoAtual();
+    historicoAtual.splice(index, 1);
+    this.conversaoService.atualizarHistorico(historicoAtual);
   }
 }
