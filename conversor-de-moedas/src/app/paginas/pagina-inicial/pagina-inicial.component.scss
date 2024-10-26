@@ -1,43 +1,44 @@
 .pagina-inicial-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-    background-color: #f4f4f9;
-  }
-  
-  .welcome-card {
-    max-width: 600px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-  
-  mat-card-title {
-    font-size: 2rem;
-    color: #333;
-    font-weight: 700;
-  }
-  
-  mat-card-subtitle {
-    font-size: 1.2rem;
-    color: #777;
-    margin-top: 8px;
-  }
-  
-  mat-card-content p {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.6;
-    margin: 10px 0;
-  }
-  
-  mat-card-image {
-    max-width: 40%;
-    max-height: 50px;
-    object-fit: cover;
-    margin-top: 15px;
-    border-radius: 8px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+.welcome-card {
+  max-width: 600px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 3px solid #2e7d32; // Borda verde escura
+  border-radius: 8px; // Bordas arredondadas para melhor estética
+}
+
+mat-card-title {
+  font-size: 2rem;
+  color: #333;
+  font-weight: 700;
+}
+
+mat-card-subtitle {
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 8px;
+}
+
+mat-card-content p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+mat-card-image {
+  max-width: 40%;
+  max-height: 50px;
+  object-fit: cover;
+  margin-top: 15px;
+  border-radius: 8px;
+}
