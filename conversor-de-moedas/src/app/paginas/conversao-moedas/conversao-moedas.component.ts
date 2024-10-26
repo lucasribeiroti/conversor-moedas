@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ConversaoService } from '../../servicos/conversao.service';
 
 @Component({
@@ -6,14 +6,21 @@ import { ConversaoService } from '../../servicos/conversao.service';
   templateUrl: './conversao-moedas.component.html',
   styleUrls: ['./conversao-moedas.component.scss']
 })
-export class ConversaoMoedasComponent {
+export class ConversaoMoedasComponent implements OnInit {
   valor: number = 1;
   moedaOrigem: string = '';
   moedaDestino: string = '';
   resultado: number | null = null;
   taxa: number | null = null;
+  moedas: { simbolo: string; nome: string }[] = [];
 
   constructor(private conversaoService: ConversaoService) {}
+
+  ngOnInit() {
+    this.conversaoService.moedas$.subscribe((moedas: { simbolo: string; nome: string }[]) => {
+      this.moedas = moedas;
+    });
+  }
 
   async converter() {
     try {

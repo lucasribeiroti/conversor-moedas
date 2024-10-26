@@ -17,20 +17,13 @@ export class ListagemMoedasComponent implements OnInit, AfterViewInit {
   constructor(private conversaoService: ConversaoService) {}
 
   ngOnInit() {
-    this.carregarMoedas();
+    this.conversaoService.moedas$.subscribe(moedas => {
+      this.dataSource.data = moedas;
+    });
   }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
-  }
-
-  async carregarMoedas() {
-    try {
-      const dados = await this.conversaoService.obterMoedas();
-      this.dataSource.data = dados.supported_codes.map(([simbolo, nome]: [string, string]) => ({ simbolo, nome }));
-    } catch (error) {
-      console.error('Erro ao carregar moedas:', error);
-    }
   }
 
   aplicarFiltro(event: Event) {

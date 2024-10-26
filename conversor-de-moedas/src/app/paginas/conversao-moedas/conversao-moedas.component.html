@@ -1,19 +1,32 @@
 <div class="container">
   <h2>Conversão de Moedas</h2>
+  
   <mat-form-field>
     <input matInput [(ngModel)]="valor" placeholder="Valor a ser convertido">
   </mat-form-field>
+
   <mat-form-field>
-    <input matInput [(ngModel)]="moedaOrigem" placeholder="Moeda de origem (Ex: USD)">
+    <mat-label>Moeda de origem</mat-label>
+    <mat-select [(ngModel)]="moedaOrigem">
+      <mat-option *ngFor="let moeda of moedas" [value]="moeda.simbolo">
+        {{ moeda.simbolo }} - {{ moeda.nome }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
+
   <mat-form-field>
-    <input matInput [(ngModel)]="moedaDestino" placeholder="Moeda de destino (Ex: BRL)">
+    <mat-label>Moeda de destino</mat-label>
+    <mat-select [(ngModel)]="moedaDestino">
+      <mat-option *ngFor="let moeda of moedas" [value]="moeda.simbolo">
+        {{ moeda.simbolo }} - {{ moeda.nome }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
+
   <button mat-raised-button color="primary" (click)="converter()">Converter</button>
 
   <div *ngIf="resultado">
-    <p>Resultado: {{resultado}}</p>
-    <p>Taxa de conversão: {{taxa}}</p>
+    <p>Resultado: {{ resultado }}</p>
+    <p>Taxa de conversão: {{ taxa }}</p>
   </div>
 </div>
-

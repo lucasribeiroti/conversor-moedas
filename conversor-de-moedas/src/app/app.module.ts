@@ -12,6 +12,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
 
 
 import { PaginaInicialComponent } from './paginas/pagina-inicial/pagina-inicial.component';
@@ -39,6 +40,7 @@ import { HistoricoConversoesComponent } from './paginas/historico-conversoes/his
     MatSortModule,
     MatButtonModule,
     MatCardModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
