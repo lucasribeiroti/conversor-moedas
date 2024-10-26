@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "conversor-moedas": {
+    "conversor-de-moedas": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/conversor-moedas",
+            "outputPath": "dist/conversor-de-moedas",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -39,6 +39,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
             "scripts": [],
@@ -76,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "conversor-moedas:build:production"
+              "buildTarget": "conversor-de-moedas:build:production"
             },
             "development": {
-              "buildTarget": "conversor-moedas:build:development"
+              "buildTarget": "conversor-de-moedas:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -103,6 +104,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -110,5 +112,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "1991c6c3-4fb9-47c4-8ca0-c6b124a14717"
   }
 }

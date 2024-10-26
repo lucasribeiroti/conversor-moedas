@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Histórico de Conversões</h2>
+  <table mat-table [dataSource]="historico" class="mat-elevation-z8">
+    <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef> Data </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.data}} </td>
+    </ng-container>
+    <ng-container matColumnDef="hora">
+      <th mat-header-cell *matHeaderCellDef> Hora </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.hora}} </td>
+    </ng-container>
+    <ng-container matColumnDef="valor">
+      <th mat-header-cell *matHeaderCellDef> Valor Original </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.valor}} </td>
+    </ng-container>
+    <ng-container matColumnDef="origem">
+      <th mat-header-cell *matHeaderCellDef> Origem </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.origem}} </td>
+    </ng-container>
+    <ng-container matColumnDef="destino">
+      <th mat-header-cell *matHeaderCellDef> Destino </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.destino}} </td>
+    </ng-container>
+    <ng-container matColumnDef="taxa">
+      <th mat-header-cell *matHeaderCellDef> Taxa </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.taxa}} </td>
+    </ng-container>
+    <ng-container matColumnDef="resultado">
+      <th mat-header-cell *matHeaderCellDef> Valor Convertido </th>
+      <td mat-cell *matCellDef="let elemento"> {{elemento.resultado}} </td>
+    </ng-container>
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let elemento; let i = index">
+        <button mat-button color="warn" (click)="excluirConversao(i)">Excluir</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['data', 'hora', 'valor', 'origem', 'destino', 'taxa', 'resultado', 'acoes']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['data', 'hora', 'valor', 'origem', 'destino', 'taxa', 'resultado', 'acoes']"></tr>
+  </table>
+</div>
