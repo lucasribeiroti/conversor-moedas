@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 import { ConversaoService } from '../../servicos/conversao.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class ListagemMoedasComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private conversaoService: ConversaoService) {}
 
@@ -24,6 +26,7 @@ export class ListagemMoedasComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   aplicarFiltro(event: Event) {

@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 import { PaginaInicialComponent } from './paginas/pagina-inicial/pagina-inicial.component';
@@ -40,7 +41,8 @@ import { HistoricoConversoesComponent } from './paginas/historico-conversoes/his
     MatSortModule,
     MatButtonModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
